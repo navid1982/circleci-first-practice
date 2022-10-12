@@ -9,19 +9,19 @@ jobs:
       - checkout
       - run:
           command: "echo Hello"
-  print-world:
+  print-my-name:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
       - run:
-          command: "echo World!"        
+          command: "echo $MY_NAVID"        
 
 
 workflows:
   welcome-workflow:
     jobs:
       - print-hello
-      - print-world:
+      - print-my-name:
           requires:
             - print-hello
